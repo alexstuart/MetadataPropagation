@@ -1,0 +1,101 @@
+$ curl --include -L -k -c /tmp/cookies.txt https://test.ukfederation.org.uk/Shibboleth.sso/Login?entityID=https%3A%2F%2Ftest-idp.ukfederation.org.uk%2Fidp%2Fshibboleth
+HTTP/1.1 302 Found
+Date: Fri, 10 Nov 2017 16:29:13 GMT
+Server: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips PHP/5.4.16
+Expires: Wed, 01 Jan 1997 12:00:00 GMT
+Cache-Control: private,no-store,no-cache,max-age=0
+Location: https://test-idp.ukfederation.org.uk/idp/profile/SAML2/Redirect/SSO?SAMLRequest=hZJfT4MwFMW%2FCuk7dIUIrhkkuD24ZLploA%2B%2BGP5cRiO02FvUfXsZzGQmZr7envs7PaddYNY2HY97U8s9vPeAxvpqG4l8PAhJryVXGQrkMmsBuSl4Ej9suOvMeKeVUYVqiBUjgjZCyaWS2LegE9AfooCn%2FSYktTEdckrNAHf6twpK0NlJ7Ch9GAY0qUWeqwZM7SAqeuK7dLdNUmKthh0hR%2FVvkC3K7k%2FYMKfDxSrRwJm0h1JoKAxNki2x1quQvJaul7Og8oIid2%2BqwM9dP8jnwW3luVBl%2FnyQIfawlmgyaULizlhgM2azWcp87s45816ItTvnvxOyFPJwvax8EiG%2FT9OdPaV7Bo1jskFAosWpcj4a64tHuI7Nfpon0b89gzTCHBf0wmcy7fjjAF6vdqoRxdGKm0Z9LjVkBkLCCI2mld%2FfJPoG&RelayState=ss%3Amem%3A474a8715790af613b1d1822d01785d2e2bc279470e5c524c3c638e8e769c4272
+Content-Length: 807
+Content-Type: text/html; charset=iso-8859-1
+
+HTTP/1.1 302 Found
+Date: Fri, 10 Nov 2017 16:29:13 GMT
+Server: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips
+Set-Cookie: JSESSIONID=57E67CF3DF8BDBBA926780A92E5DA62D; Path=/idp; Secure; HttpOnly
+Cache-Control: no-store
+Location: /idp/profile/SAML2/Redirect/SSO;jsessionid=57E67CF3DF8BDBBA926780A92E5DA62D?execution=e1s1
+Content-Length: 0
+
+HTTP/1.1 200 OK
+Date: Fri, 10 Nov 2017 16:29:14 GMT
+Server: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips
+Cache-Control: no-store
+Content-Type: text/html;charset=utf-8
+Content-Length: 3597
+
+<!DOCTYPE html>
+<html>
+  	<head>
+    	<meta charset="utf-8">
+    	<title>UK federation Test IdP</title>
+    	<link rel="stylesheet" type="text/css" href="/idp/css/main.css">
+  	</head>
+  	<body>
+    <div class="wrapper">
+      <div class="container">
+        <header>
+          <img src="/idp/images/ukfedlogo.jpg" alt="UK federation">
+          <h1 align=center><font color="ff0000">IMPORTANT WARNING!</font><br>Do not enter your own credentials here</h1>
+        </header>
+
+        <div class="content">
+          <p>This a UK federation Test Identity Provider (IdP), you should <b>NOT</b> enter the credentials (username and password) for your home organisation here.  It is likely that you have arrived at this page in error, please go back and re-select your organisation from the relevant list.</p><br><p>Please contact your home organisation support team for any further assistance.</p><br>
+          <div class="column one">
+            
+
+            <form action="/idp/profile/SAML2/Redirect/SSO;jsessionid=57E67CF3DF8BDBBA926780A92E5DA62D?execution=e1s1" method="post">
+
+                                      <legend>
+                Login to UK federation Test SP
+              </legend>
+                                    
+                          <div class="form-element-wrapper">
+                <label for="username">Username</label>
+                <input class="form-element form-field" id="username" name="j_username" type="text"
+                	value="">
+              </div>
+
+              <div class="form-element-wrapper">
+                <label for="password">Password</label>
+                <input class="form-element form-field" id="password" name="j_password" type="password" value="">
+              </div>
+
+              <div class="form-element-wrapper">
+                <input type="checkbox" name="donotcache" value="1"> Don't Remember Login              </div>
+            
+              <div class="form-element-wrapper">
+                <input id="_shib_idp_revokeConsent" type="checkbox" name="_shib_idp_revokeConsent" value="true">
+                Clear prior granting of permission for release of your information to this service.              </div>
+
+                          <div class="form-element-wrapper">
+                <button class="form-element form-button" type="submit" name="_eventId_proceed"
+                    onClick="this.childNodes[0].nodeValue='Logging in, please wait...'"
+                    >Login</button>
+              </div>
+            
+                        </form>
+
+			
+                                      <img src= "https&#x3a;&#x2f;&#x2f;test.ukfederation.org.uk&#x2f;images&#x2f;orange-topv3.jpg"
+                  alt="UK&#x20;federation&#x20;Test&#x20;SP">
+                                      This test service provider allows you to see the attributes your identity provider is releasing.
+                        
+          </div>
+          <div class="column two">
+            <ul class="list list-help">
+                              <li class="list-help-item"><a href="https://www.ukfederation.org.uk/content/Documents/TestIdP"><span class="item-marker">&rsaquo;</span> Test IdP Information</a></li>
+                            <li class="list-help-item"><a href="javascript:history.back()"><span class="item-marker">&rsaquo;</span> Go Back</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="container container-footer">
+          <p class="footer-text">&copy; Jisc Services Limited.</p>
+        </div>
+      </footer>
+    </div>
+    
+ 	</body>
+</html>

@@ -1,0 +1,160 @@
+$ curl --include -L -k -c /tmp/cookies.txt https://test.ukfederation.org.uk/Shibboleth.sso/Login?entityID=https%3A%2F%2Fidp.jisc.ac.uk%2Fidp%2Fshibboleth
+HTTP/1.1 302 Found
+Date: Fri, 10 Nov 2017 16:16:32 GMT
+Server: Apache/2.4.6 (Red Hat Enterprise Linux) OpenSSL/1.0.2k-fips PHP/5.4.16
+Expires: Wed, 01 Jan 1997 12:00:00 GMT
+Cache-Control: private,no-store,no-cache,max-age=0
+Location: https://idp.jisc.ac.uk/idp/profile/SAML2/Redirect/SSO?SAMLRequest=hVJdb4IwFP0rpO9SQHSsEROnDzNx0wjbw16WAhftBi3rLfv49yvgMvfimr709nz0nHSGvK4atmjNUe7hrQU0zmddSWT9RUxaLZniKJBJXgMyk7NkcbdhgeuxRiujclURZ4EI2ggll0piW4NOQL%2BLHB72m5gcjWmQUWqsuNu%2BllCA5h3YVfpgBzQ5iixTFZiji6hopx%2FQ3TZJibOyHCF79K%2BQKBr3RWDu8ryj2yO1TylFBSfuHgqhITc0SbbEWa9i8synURkVpRdFYbeyScj59cQLISyDbMxDC0NsYS3RcGliEnj%2B1cj3R76X%2BlNm9zh4Is7ulPhGyELIw%2BV6sgGE7DZNd6MhzyNo7LNYAJnPupJZb6zPar8sy3%2B6JvN%2FmwVphPma0TOfwbRh91Z4vdqpSuRfzqKq1MdSAzcQE5%2FQ%2BUD5%2BzHm3w%3D%3D&RelayState=ss%3Amem%3A864f598fa849564fb90c3f90ff85c41e69e42e9e99c373aca9d808047d1f9ba5
+Content-Length: 805
+Content-Type: text/html; charset=iso-8859-1
+
+HTTP/1.1 302 Found
+Server: Apache-Coyote/1.1
+Set-Cookie: JSESSIONID=E0F170C1627CD23E28E9699E82CEE65C; Path=/idp; Secure
+Expires: 0
+Cache-Control: no-cache, no-store, must-revalidate, max-age=0
+Pragma: no-cache
+Set-Cookie: _idp_authn_lc_key=476376d5e1c35b3aa07040d97db8fefd20482e3b25ffbb0a3a83f5ee5079a105; Version=1; Path=/idp; Secure
+Location: https://idp.jisc.ac.uk:443/idp/AuthnEngine
+Content-Length: 0
+Date: Fri, 10 Nov 2017 16:16:10 GMT
+
+HTTP/1.1 302 Found
+Server: Apache-Coyote/1.1
+Expires: 0
+Cache-Control: no-cache, no-store, must-revalidate, max-age=0
+Pragma: no-cache
+Location: https://idp.jisc.ac.uk:443/idp/Authn/UserPassword
+Content-Length: 0
+Date: Fri, 10 Nov 2017 16:16:10 GMT
+
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Expires: 0
+Cache-Control: no-cache, no-store, must-revalidate, max-age=0
+Pragma: no-cache
+Content-Type: text/html
+Content-Length: 3605
+Date: Fri, 10 Nov 2017 16:16:10 GMT
+
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8 ie7"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9 ie8"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+
+<html class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>JISC IDP</title>
+
+    <meta content="width=device-width,initial-scale=1.0" name="viewport" />
+    <meta content="on" http-equiv="cleartype" />
+    <!--
+       Turn off phone number auto-detection in favour of manual control: http://bit.ly/pHJN6R
+       -->
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" href="/assets/css/content.css" media="all" />
+    <link rel="stylesheet" href="/assets/css/print.css" media="print" />
+
+    <script src="/assets/js/vendor/modernizr.js"></script>
+
+    <!--[if lte IE 8]>
+      <script src="/assets/js/vendor/html5shiv.cx.js"></script>
+      <script src="/assets/js/vendor/respond.js"></script>
+    <![endif]-->
+
+  </head>
+  <body class="jisc">
+
+
+
+<header class="masthead" role="banner">
+
+  <div class="inner">
+    <div class="masthead__top">
+      <a class="logo" href="/">
+        <img src="/assets/img/jisc-logo-61.png" alt="JISC Logo" />
+      </a>
+      <a class="masthead__telephone" href="tel:00441173310789">0117 331 0789</a>
+    </div> <!--/ .masthead__top -->
+  </div> <!--/ .inner -->
+
+
+</header> <!--/ .masthead -->
+
+
+
+<div class="inner l-pull-left featured top-bar">
+  <div class="l-centre-offset row">
+  <div class="login js-password l-gutter--top">
+    <div class="col span-11">
+    <h2 class="cx_collapsibles__trigger">Login</h2>
+
+            
+              <form class="login__form" id="login" action="/idp/Authn/UserPassword" method="post">
+            
+
+  
+
+
+
+      <fieldset class="l-gutter--top">
+        <p class="legend-text">Enter your Jisc login details to continue:</p>
+
+        
+
+
+       <ul class="form-fields">
+
+
+        <li class="form-fields__item--text">
+          <label class="">
+            <span class="form-fields__label-text">Username</span>
+            <input type="text" name="j_username" />
+          </label>
+        </li>
+
+        <li class="form-fields__item--text">
+          <label>
+            <span class="form-fields__label-text">Password</span>
+            <input class="form__field--password form__field" type="password" name="j_password" />
+          </label>
+        </li>
+
+
+
+      </ul>
+
+      <div class="btn-wrap">
+        <button type="submit" class="btn btn--3d btn--primary">Submit</button>
+      </div>
+    </fieldset>
+    </form>
+    </div>
+  </div><!--/login-->
+</div><!--/inner-->
+</div>
+
+
+
+      <!--
+         Scripts to be concatenated and minified during build
+         -->
+      <script src="/assets/js/vendor/jquery.js"></script>
+      <script src="/assets/js/vendor/jquery-ui.js"></script>
+
+      <!-- JOEL: remove if deeded unnecessary - used in password_reveal and other things for stage 2 -->
+      <script src="/assets/js/vendor/mustache.js"></script>
+
+      <script src="/assets/js/vendor/jquery.uniform.js"></script>
+      <script src="/assets/js/vendor/printshiv.cx-modified.js"></script>
+      <script src="/assets/js/vendor/jquery.cx.password_reveal.js"></script><!-- code for adding a swtich password link after password field -->
+
+      <script src="/assets/js/lib/jisc.js"></script>
+      <script src="/assets/js/application.js"></script>
+
+  </body>
+</html>
