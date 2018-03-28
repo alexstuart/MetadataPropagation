@@ -1,0 +1,43 @@
+curl --include -L -k 'https://chesser.dev.ja.net/Shibboleth.sso/Login?entityID=https%3A%2F%2Fidp.jisc.ac.uk%2Fidp%2Fshibboleth' -c /tmp/cookies.txt
+HTTP/1.1 302 Found
+Date: Tue, 20 Mar 2018 15:11:35 GMT
+Server: Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips
+Expires: Wed, 01 Jan 1997 12:00:00 GMT
+Cache-Control: private,no-store,no-cache,max-age=0
+Location: https://idp.jisc.ac.uk/idp/profile/SAML2/Redirect/SSO?SAMLRequest=fZJLU8IwFIX%2FSid70hcVzVBmEBYyg8JQdOHGSZsLDZSk5qag%2F94%2BQHHDMsm559zzTYbID0XJxpXN1Qo%2BK0DrfB0Khax9iEllFNMcJTLFD4DMZiwZP89ZQD1WGm11pgvijBHBWKnVRCusDmASMEeZwetqHpPc2hKZ62Y5NDIq4Eh3nCqwbpLLNNUF2JwiardxDtzlIlkTZ1qvIhVvTP8spCjpTmJGeUarfXN06yU2soDz7AqENJDVzsmCOLNpTD4GYT%2FwUrEJ%2FCgNw%2F6dEFGUPvhRGAX13SCqZYgVzBRarmxMAs%2B%2F73lhL%2FDWfsR8n4XRO3GW566PUgmptrfBpJ0I2dN6vex1fd7AYNulFpDRsMHL2mBzBfy2Lb9QJqMLkDI89QS2SKv9BgSYlhjVZtsAwl%2B%2BQ%2FcqsYsv2UsdMZsudSGzb2dcFPo0McAtxMQn7qgb%2Bf85Rj8%3D&RelayState=ss%3Amem%3Aa9942ceacc6f382d4807be28f9ba7902c48395e612952441bdd935c624963a1e
+Content-Length: 827
+Content-Type: text/html; charset=iso-8859-1
+
+HTTP/1.1 500 Server Error
+Set-Cookie: JSESSIONID=xzp4a1foiifotp6wxy4ascnj;Path=/idp;Secure
+Expires: 
+Cache-Control: no-store
+Content-Type: text/html;charset=utf-8
+Content-Length: 917
+
+	            
+    <!DOCTYPE html>
+<html>
+  	<head>
+    	<meta charset="utf-8">
+    	<title>Web Login Service - Unable to Respond</title>
+	<meta name="viewport" content="width=device-width" />
+    	<link rel="stylesheet" type="text/css" href="/login-box.css">
+  	</head>
+  	
+  	<body>
+    <div class="wrapper">
+    	<div class="container">
+                <div id="header">
+                        <img id="logo" src="/images/logo.jpg" alt="Jisc Logo">
+                        <h1>Web Login Service</h1>
+                </div>
+		<h2 style="color:#000000; text-align: center;">Unable to Respond</h2>
+		
+        	<p class="center">The login service was unable to identify a compatible way to respond to the requested application. This is generally due to a misconfiguration on the part of the application and should be reported to the application's support team or owner.</p>
+    	</div>
+
+    </div>
+    </body>
+</html>
+
