@@ -80,8 +80,9 @@ sub doTheThing {
 	my $entityID = shift;
 	my $now;
 
-	$entityID =~ s!:!%3A!g;
-	$entityID =~ s!/!%2F!g;
+	$encodedID = $entityID;
+	$encodedID =~ s!:!%3A!g;
+	$encodedID =~ s!/!%2F!g;
 
 	$verbose && print "Checking $entityID\n";
 
@@ -90,7 +91,7 @@ sub doTheThing {
 	close(TIME);
 	$verbose && print "$now\n";
 	$theCommand = 'curl -k --silent -L -c /tmp/cookies.txt -o /dev/null -w "' . $now. ', ' . $entityID . ', %{http_code}\n" ' . 
-		$RequestInitiator . '?entityID=' . $entityID;
+		$RequestInitiator . '?entityID=' . $encodedID;
 	$verbose && print "$theCommand\n";
 	open (FILE, "$theCommand |") || warn "Cannot get the curl command to work";
 	while (<FILE>) { print; }
