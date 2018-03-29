@@ -31,15 +31,15 @@ sub usage {
 	so the HTTP status code of the request is:
 
 	200 (OK) if the SP recognises both the IdP entityID and the AssertionConsumerService endpoint
-	500 (Server Error) if the IdP entityID is recognised but the AssertionConsumerService endpoint isn't
-	400 (Bad Request) if the IdP entityID is not recognised
+	500 (Server Error) if the AssertionConsumerService endpoint isn't recognised (jetty hosted)
+	400 (Bad Request) if the AssertionConsumerService endpoint isn't recognised (http+tomcat)
 
 	The output of the script is a series of lines: timestamp, entityID, return code
 
 	The way to measure propagation time is to:
 	1) Register an SP's metadata
 	2) Configure the SP to have an AssertionConsumerService endpoint that is not in metadata
-	3) Set this script running. You should find the output is HTTP status 500
+	3) Set this script running. You should find the output is HTTP status 400/500
 	4) Register the new endpoint
 	5) Watch the output as the IdP recognises the SP's new endpoint (and HTTP status goes to 200)
 
