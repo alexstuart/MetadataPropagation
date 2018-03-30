@@ -90,8 +90,9 @@ sub doTheThing {
 	while (<TIME>) { chomp; $now .= $_; }
 	close(TIME);
 	$verbose && print "$now\n";
-	$theCommand = 'curl -k --silent -L -c /tmp/cookies.txt -o /dev/null -w "' . $now. ', ' . $entityID . ', %{http_code}\n" ' . 
-		$RequestInitiator . '?entityID=' . $encodedID;
+        # curl flags are ordered so that -o and -w can be omitted when cutting and pasting output from -v
+	$theCommand = 'curl -k --silent -L -c /tmp/cookies.txt ' . $RequestInitiator . '?entityID=' . $encodedID .
+		' -o /dev/null -w "' . $now. ', ' . $entityID . ', %{http_code}\n"';
 	$verbose && print "$theCommand\n";
 	open (FILE, "$theCommand |") || warn "Cannot get the curl command to work";
 	while (<FILE>) { print; }
