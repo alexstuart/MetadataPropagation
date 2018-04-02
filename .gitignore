@@ -3,3 +3,9 @@
 *.log
 *.synctex.gz
 *.toc
+
+# results/ directory - don't want to be hasty :-)
+results/
+
+# notes file for my jottings
+notes.md 
