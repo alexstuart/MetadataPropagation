@@ -15,13 +15,15 @@ sub usage {
 	
 	print <<EOF;
 
-	usage: $0 [-h] [-v] [-i <interval>] -r <RequestInitiator> -e <IdP entityID> [-e <IdP entityID> ...]
+	usage: $0 [-h] [-v] [-i <interval>] [-p] -r <RequestInitiator> -e <IdP entityID> [-e <IdP entityID> ...]
 
 	Script to measure metadata propagation
 
 	-r <RequestInitiator> - RequestInitiator to use
 	-i <interval>         - number of seconds between repeats (default is $interval_d)
 	-e <IdP entityID>     - 1 or more IdP entityIDs to check (multiple -e options allowed)
+	-p                    - wait until metadata is published before starting measurements
+	                        (this is not fully implemented on 2018-03-02)
 
 	-h - print this help text and exit
 	-v - be verbose
@@ -51,16 +53,34 @@ my $RequestInitiator;
 my $verbose;
 my @entityIDs;
 my $interval;
+my $post;
 GetOptions( 	"help" => \$help,
 		"requestinitiator=s", \$RequestInitiator,
 		"verbose", \$verbose,
 		"entityIDs=s", \@entityIDs,
-		"interval=i", \$interval
+		"interval=i", \$interval,
+		"post", \$post
             );
 
 if ( $help ) {
     usage;
     exit 0;
+}
+
+if ( $post ) {
+	print <<EOF;
+
+WARNING: the code to do this automatically has not yet been implemented.
+
+Instead, here's the HTTP header of the UKf metadata aggregate. You should wait until
+the Last-Modified element of the HTTP header changes, then run this command again
+(without the -p option)
+
+EOF
+	open(CURL, 'curl --head --silent http://metadata.ukfederation.org.uk/ukfederation-metadata.xml | ');
+	while(<CURL>) { print; }
+	close(CURL);
+	exit 0;
 }
 
 if ( ! $RequestInitiator ) {
