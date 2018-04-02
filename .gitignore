@@ -10,3 +10,5 @@ results/
 # notes file for my jottings
 notes.md
 images/ 
+entityIDs.txt
+*.swp

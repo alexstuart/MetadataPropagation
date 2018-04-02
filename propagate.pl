@@ -15,15 +15,18 @@ sub usage {
 	
 	print <<EOF;
 
-	usage: $0 [-h] [-v] [-i <interval>] [-p] -r <RequestInitiator> -e <IdP entityID> [-e <IdP entityID> ...]
+	usage: $0 [-h] [-v] [-i <interval>] [-p] -r <RequestInitiator> \\
+		[-f <file> | -e <IdP entityID> [-e <IdP entityID> ...]]
 
 	Script to measure metadata propagation
 
 	-r <RequestInitiator> - RequestInitiator to use
 	-i <interval>         - number of seconds between repeats (default is $interval_d)
-	-e <IdP entityID>     - 1 or more IdP entityIDs to check (multiple -e options allowed)
 	-p                    - wait until metadata is published before starting measurements
 	                        (this is not fully implemented on 2018-03-02)
+
+	-e <IdP entityID>     - 1 or more IdP entityIDs to check (multiple -e options allowed)
+        -f <file>             - read list of entityIDs from file, one entityID per line
 
 	-h - print this help text and exit
 	-v - be verbose
@@ -54,12 +57,14 @@ my $verbose;
 my @entityIDs;
 my $interval;
 my $post;
+my $file;
 GetOptions( 	"help" => \$help,
-		"requestinitiator=s", \$RequestInitiator,
-		"verbose", \$verbose,
-		"entityIDs=s", \@entityIDs,
-		"interval=i", \$interval,
-		"post", \$post
+		"requestinitiator=s" => \$RequestInitiator,
+		"verbose" => \$verbose,
+		"entityIDs=s" => \@entityIDs,
+		"interval=i" => \$interval,
+		"post" => \$post,
+		"file=s" => \$file
             );
 
 if ( $help ) {
@@ -89,6 +94,20 @@ if ( ! $RequestInitiator ) {
 }
 
 if ( ! $interval ) { $interval = $interval_d; }
+
+if ( @entityIDs && $file ) { 
+	usage( "ERROR: cannot have both -e and -f options to define entityIDs" );
+	exit 1;
+}
+if ( $file ) {
+	open(ENTITYIDS, "<", "$file") || die "Cannot open file of entityIDs for reading, $file";
+	while(<ENTITYIDS>) {
+		chomp;
+		s/,.*//;
+		push @entityIDs, $_;
+	}
+	close(ENTITYIDS);
+}
 
 $verbose && print "Script running in verbose mode\n";
 $verbose && print "RequestInitiator: $RequestInitiator\n";
