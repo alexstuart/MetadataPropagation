@@ -1,0 +1,5 @@
+# TeX auxiliary files
+*.aux
+*.log
+*.synctex.gz
+*.toc
