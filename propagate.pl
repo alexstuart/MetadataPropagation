@@ -130,7 +130,7 @@ sub doTheThing {
 	close(TIME);
 	$verbose && print "$now\n";
         # curl flags are ordered so that -o and -w can be omitted when cutting and pasting output from -v
-	$theCommand = 'curl -k --silent -L -c /tmp/cookies.txt ' . $RequestInitiator . '?entityID=' . $encodedID .
+	$theCommand = 'curl --connect-timeout 3 -k --silent -L -c /tmp/cookies.txt ' . $RequestInitiator . '?entityID=' . $encodedID .
 		' -o /dev/null -w "' . $now. ', ' . $entityID . ', %{http_code}\n"';
 	$verbose && print "$theCommand\n";
 	open (FILE, "$theCommand |") || warn "Cannot get the curl command to work";
