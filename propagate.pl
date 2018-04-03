@@ -4,7 +4,7 @@
 #
 # Author: Alex Stuart, alex.stuart@jisc.ac.uk
 #
-
+$| = 1;
 use Getopt::Long;
 
 my $interval_d = 300; # 5 minutes default repeat interval
@@ -102,6 +102,7 @@ if ( @entityIDs && $file ) {
 if ( $file ) {
 	open(ENTITYIDS, "<", "$file") || die "Cannot open file of entityIDs for reading, $file";
 	while(<ENTITYIDS>) {
+		if (/^\s*#/) { next; }
 		chomp;
 		s/,.*//;
 		push @entityIDs, $_;
