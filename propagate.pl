@@ -95,6 +95,9 @@ if ( ! $RequestInitiator ) {
 
 if ( ! $interval ) { $interval = $interval_d; }
 
+#
+# Populate array of entityIDs either from multiple -e options or from the file specified by -f
+#
 if ( @entityIDs && $file ) { 
 	usage( "ERROR: cannot have both -e and -f options to define entityIDs" );
 	exit 1;
@@ -108,6 +111,10 @@ if ( $file ) {
 		push @entityIDs, $_;
 	}
 	close(ENTITYIDS);
+}
+if ( $#entityIDs == -1 ) {
+	usage( "ERROR: must specify at least one entityID using -e or -f options" );
+	exit 1;
 }
 
 $verbose && print "Script running in verbose mode\n";
