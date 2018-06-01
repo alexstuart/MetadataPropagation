@@ -5,6 +5,31 @@ This is prepping some background data for https://wiki.geant.org/display/gn43tip
 
 Author: Alex Stuart, alex.stuart@jisc.ac.uk
 
+## Process
+
+### Initial deployment
+
+- Deploy a Shibboleth SP on RedHat Enterprise Linux 7
+- Register the SP, example using hostname p3w-ds.dev.ukfederation.org.uk
+
+### Prepare a test run
+
+- Obtain a UUID from `cat /proc/sys/kernel/random/uuid`, example is 464bdab4-0b5d-4fca-8543-ae135f8ced01  
+- Edit the shibboleth2.xml file, add handlerURL="/464bdab4-0b5d-4fca-8543-ae135f8ced01" as an XML attribute of the Sessions element  
+- Restart the SP  
+- Ensure the endpoint is in the metadata, from https://p3w-ds.dev.ukfederation.org.uk/464bdab4-0b5d-4fca-8543-ae135f8ced01/Metadata
+- Register the endpoint
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://p3w-ds.dev.ukfederation.org.uk/464bdab4-0b5d-4fca-8543-ae135f8ced01/SAML2/POST" index="7"/>
+
+### Setting off the test run 
+
+When you set off the test runs depends on whether you want the IdPs which use MDQ to have the SP metadata in cache. If you want them to have the metadata in cache, you should start the test some time (a few minutes) before the new metadata is published. Starting the test after the new metadata has been published should (in most circumstances) ensure that the IdPs using MDQ do not have the probe SP's metadata in cache.
+
+Whichever start time you choose, the command to run is something like:
+```
+nohup ./propagate.pl -r https://p3w-ds.dev.ukfederation.org.uk/464bdab4-0b5d-4fca-8543-ae135f8ced01/Login -f 2018-04-04-Shib-v3-IdP-entityIDs.txt >> results/2018-06-01-output.txt &
+```
+
 ## Copyright and License
 
 The contents of this repository are Copyright (C) the named contributors or their
