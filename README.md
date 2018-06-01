@@ -19,7 +19,9 @@ Author: Alex Stuart, alex.stuart@jisc.ac.uk
 - Restart the SP  
 - Ensure the endpoint is in the metadata, from https://p3w-ds.dev.ukfederation.org.uk/464bdab4-0b5d-4fca-8543-ae135f8ced01/Metadata
 - Register the endpoint
+```
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://p3w-ds.dev.ukfederation.org.uk/464bdab4-0b5d-4fca-8543-ae135f8ced01/SAML2/POST" index="7"/>
+```
 
 ### The test run 
 
