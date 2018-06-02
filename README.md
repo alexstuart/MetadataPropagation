@@ -41,6 +41,13 @@ The output file contains one line per probe, consisting of datestamp, entityID, 
 - process.sh runs both those scripts together and outputs (timestamp, number) pairs into an output file
 - plot.R takes the output from process.sh and makes a preview PNG file of results
 
+```
+$ ./process.sh results/2018-06-01-output.txt 
+$ ./plot.R results/2018-06-01-output.txt.processed 
+$ ls -l results/2018-06-01-output.txt.processed.png
+-rw-r--r--@ 1 alex.stuart  staff  25421  2 Jun 09:09 results/2018-06-01-output.txt.processed.png
+```
+
 ## Copyright and License
 
 The contents of this repository are Copyright (C) the named contributors or their
