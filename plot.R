@@ -24,15 +24,16 @@ if (file.access(inputfile, 4) != 0 ) {
 }
 
 # Ensure outputfile doesn't exist
-outputfile <- paste0(inputfile, ".png")
+outputfile <- paste0(inputfile, ".pdf")
 if (file.exists(outputfile) != 0 ) {
         cat ("ERROR: output file '", outputfile, "' already exists\n", sep="")
         q(status=1) 
 }
 
+title <- paste0("Metadata propagation through the UK federation\n(", inputfile, ")")
 data <- read.table(inputfile, sep=" ")
 timestamp <- strptime( data$V1, tz = "UTC", "%Y-%m-%dT%H:%M:%SZ")
-png(outputfile)
-plot(timestamp, data$V2, type="l", xlab="Time", ylab="Number of IdPs which have downloaded metadata", main="Metadata propagation through the UK federation")
+pdf(outputfile)
+plot(timestamp, data$V2, type="l", xlab="Time", ylab="Number of IdPs which have downloaded metadata", main=title)
 dev.off()
 
