@@ -106,6 +106,7 @@ sub doTheThing {
 	my $RequestInitiator = shift;
 	my $entityID = shift;
 	my $now;
+	my $curloutput;
 
 	$encodedID = $entityID;
 	$encodedID =~ s!:!%3A!g;
@@ -122,11 +123,22 @@ sub doTheThing {
 		' -o /dev/null -w "' . $now. ', ' . $entityID . ', %{http_code}\n"';
 	$verbose && print "$theCommand\n";
 	open (FILE, "$theCommand |") || warn "Cannot get the curl command to work";
-	while (<FILE>) { print; }
+	while (<FILE>) { $curloutput .= $_; }
 	close (FILE);
+	$curloutput =~ m!\s(\S+)$!;
+	$retval = $1;
+	$verbose && print "HTTP return value: $retval\n";
+	print $curloutput;
+	return $retval
 }
 
-while (1) {
-	foreach $entityID (@entityIDs) { doTheThing( $RequestInitiator, $entityID ); }
+while ($#entityIDs != -1) {
+	foreach $entityID (@entityIDs) { 
+		$retval = doTheThing( $RequestInitiator, $entityID ); 
+		if ( $retval != 200 ) {
+			push @nextentityIDs, $entityID;
+		}
+	}
+	@entityIDs = @nextentityIDs;
 	sleep $interval;
 }
