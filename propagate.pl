@@ -133,6 +133,7 @@ sub doTheThing {
 }
 
 while ($#entityIDs != -1) {
+	undef @nextentityIDs;
 	foreach $entityID (@entityIDs) { 
 		$retval = doTheThing( $RequestInitiator, $entityID ); 
 		if ( $retval != 200 ) {
