@@ -30,7 +30,7 @@ if (file.exists(outputfile) != 0 ) {
         q(status=1) 
 }
 
-title <- paste0("Metadata propagation through the UK federation\n(", inputfile, ")")
+title <- paste0("Metadata propagation from the UKf Metadata Publication Service\n(", inputfile, ")")
 data <- read.table(inputfile, sep=" ")
 timestamp <- strptime( data$V1, tz = "UTC", "%Y-%m-%dT%H:%M:%SZ")
 pdf(outputfile)
