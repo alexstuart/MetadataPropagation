@@ -4,6 +4,10 @@
 *.synctex.gz
 *.toc
 
+# R files
+.RData
+.Rhistory
+
 # results/ directory - don't want to be hasty :-)
 results/
 
