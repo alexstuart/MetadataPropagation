@@ -27,6 +27,11 @@ Author: Alex Stuart, alex.stuart@jisc.ac.uk
 
 When you set off the test runs depends on whether you want the IdPs which use MDQ to have the SP metadata in cache. If you want them to have the metadata in cache, you should start the test some time (a few minutes) before the new metadata is published. Starting the test after the new metadata has been published should (in most circumstances) ensure that the IdPs using MDQ do not have the probe SP's metadata in cache.
 
+You can extract entityIDs of Shiboleth IdPs registered in the UK federation
+```
+xsltproc listShibbolethIdPsinUKf.xsl ukfederation-metadata.xsl > 2018-04-04-Shib-v3-IdP-entityIDs.txt
+```
+
 Whichever start time you choose, the command to run is something like:
 ```
 nohup ./propagate.pl -r https://p3w-ds.dev.ukfederation.org.uk/464bdab4-0b5d-4fca-8543-ae135f8ced01/Login -f 2018-04-04-Shib-v3-IdP-entityIDs.txt >> results/2018-06-01-output.txt &

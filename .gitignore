@@ -17,3 +17,6 @@ images/
 entityIDs.txt
 *.swp
 database/
+
+# metadata aggregate
+ukfederation-metadata.xml
