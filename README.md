@@ -39,6 +39,8 @@ nohup ./propagate.pl -r https://p3w-ds.dev.ukfederation.org.uk/464bdab4-0b5d-4fc
 
 The output file contains one line per probe, consisting of datestamp, entityID, HTTP return code triples. When you're finished recording you stop the process using kill.
 
+NOTE: It takes some hours for metadata to propagate. Avoid running the probe from a VM with auto-shutdown.
+
 ### Post-processing
 
 - first200.pl determines the first occurence of HTTP 200 success  
